@@ -1,0 +1,25 @@
+<div class="video-list">
+  <div *ngFor="let video of filteredVideos" class="video-item">
+    <h3>{{ video.title }}</h3>
+    <p>{{ video.description }}</p>
+    <img [src]="video.thumbnail" alt="{{ video.title }}">
+    <button [routerLink]="['/video', video.id]">Assistir</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

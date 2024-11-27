@@ -1,0 +1,28 @@
+<header>
+  <h1>PlaceFilm</h1>
+  <div *ngIf="profile">
+    <img [src]="profile.picture" alt="{{ profile.name }}" />
+    <p><strong>Nome:</strong> {{ profile.name }}</p>
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+  </div>
+  <div class="search-container">
+    <input type="text" placeholder="Pesquisar vídeos..." [(ngModel)]="searchQuery" (input)="filterVideos()" />
+    <select [(ngModel)]="selectedCategory" (change)="filterVideos()">
+      <option value="">Todas Categorias</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  @if(auth.isAuthenticated$ | async){
+      <button (click)="logout()">Logout</button>
+   }@else {
+      <button (click)="login()">Login</button>
+   }
+  </div>
+</header>
+
+
+
+
+
+
+
+

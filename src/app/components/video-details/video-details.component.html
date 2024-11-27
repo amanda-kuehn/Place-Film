@@ -1,0 +1,10 @@
+<div *ngIf="video">
+  <h1>{{ video.title }}</h1>
+  <p>Categoria: {{ video.category }}</p>
+  <p>{{ video.description }}</p>
+  <p>Visualizações: {{ video.views }}</p>
+  <video controls [src]="video.url"></video>
+</div>
+
+
+

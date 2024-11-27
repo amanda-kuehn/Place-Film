@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+/* Adicionar estilos globais de responsividade */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos de acessibilidade */
+a {
+  color: #007BFF;
+}
+
+a:focus {
+  outline: 2px dashed #007BFF;
+}
+
+button:focus {
+  outline: 2px dashed #007BFF;
+}
+
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+

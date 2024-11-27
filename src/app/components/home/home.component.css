@@ -1,0 +1,48 @@
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.login-button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaçamento entre o input e o botão */
+  padding: 10px;
+}
+
+.search-container input {
+  flex: 1;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
