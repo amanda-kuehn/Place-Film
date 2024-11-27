@@ -1,26 +1,33 @@
+// home.component.ts
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../../services/VideoService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from '@auth0/auth0-angular';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule, MatDialogModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   videos: any[] = [];
   filteredVideos: any[] = [];
+  errorMessage: string | null = null;
 
   constructor(
     private videoService: VideoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -46,6 +53,16 @@ export class HomeComponent implements OnInit {
       (!searchQuery || video.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
        video.description.toLowerCase().includes(searchQuery.toLowerCase()))
     );
+  }
+
+  onVideoSelect(videoId: number) {
+    this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
+      if (!isAuthenticated) {
+        this.dialog.open(ErrorDialogComponent);
+        return;
+      }
+      this.router.navigate(['/video', videoId]);
+    });
   }
 }
 

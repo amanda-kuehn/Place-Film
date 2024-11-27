@@ -1,0 +1,29 @@
+/* error-dialog.component.css */
+:host {
+  display: block;
+  position: fixed;
+  top: 10%; /* Posição no topo da página */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Alta prioridade para estar sobre o restante do conteúdo */
+  max-width: 400px; /* Largura máxima */
+  width: auto;
+  padding: 20px; /* Preenchimento interno */
+  background: white; /* Fundo branco */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  border-radius: 8px; /* Bordas arredondadas */
+  text-align: center; /* Centraliza o texto */
+}
+
+mat-dialog-content, mat-dialog-title {
+  text-align: center; /* Centraliza o conteúdo */
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: center; /* Centraliza os botões */
+  margin-top: 10px; /* Margem superior para os botões */
+}
+
+
+
