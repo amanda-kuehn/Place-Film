@@ -57,7 +57,12 @@ export class HeaderComponent implements OnInit {
       logoutParams: { returnTo: this.document.location.origin },
     });
   }
+
+  goBack(): void {
+    this.router.navigate(['/']); // Altere para a rota que deseja retornar
+  }
 }
+
 
 
 
