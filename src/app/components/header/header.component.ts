@@ -3,7 +3,7 @@ import { DOCUMENT, CommonModule, AsyncPipe } from '@angular/common';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { FormsModule } from '@angular/forms';
 import { VideoService } from '../../services/VideoService.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +17,9 @@ export class HeaderComponent implements OnInit {
   selectedCategory = '';
   categories: any[] = [];
   profile!: User | null | undefined;
+  filterDropdownVisible: boolean = false;
+  profileDropdownVisible: boolean = false;
+  menuVisible: boolean = false;
 
   constructor(
     public auth: AuthService,
@@ -35,6 +38,10 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  isHomeRoute(): boolean {
+    return this.router.url === '/';
+  }
+
   filterVideos() {
     const selectedCategoryName = this.categories.find(category => category.id === this.selectedCategory)?.name || '';
     console.log('Categoria selecionada:', selectedCategoryName);
@@ -48,6 +55,18 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  toggleMenu() {
+    this.menuVisible = !this.menuVisible;
+  }
+
+  toggleFilterDropdown() {
+    this.filterDropdownVisible = !this.filterDropdownVisible;
+  }
+
+  toggleProfileDropdown() {
+    this.profileDropdownVisible = !this.profileDropdownVisible;
+  }
+
   login() {
     this.auth.loginWithRedirect();
   }
@@ -58,10 +77,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  goBack(): void {
-    this.router.navigate(['/']); // Altere para a rota que deseja retornar
+  navigateToHome(): void {
+    this.router.navigate(['/']);
   }
 }
+
+
 
 
 

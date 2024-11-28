@@ -2,49 +2,242 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #333;
+  padding: 5px 20px;
+  background-color: #1e2026;
   color: #fff;
+  position: fixed; /* Fixar o cabeçalho no topo */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Garantir que o cabeçalho fique acima de outros elementos */
+}
 
-  .back-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
+.logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+  flex-shrink: 0; /* Impedir que a logo diminua de tamanho */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #1e2026;
+  padding: 10px;
+  border-radius: 20px;
+  flex-grow: 1;
+  max-width: 600px;
+  justify-content: center;
+  position: relative; /* Permite posicionar o dropdown relativo ao botão */
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #424757;
+  color: #d9d9d9;
+  font-size: 16px;
+}
+
+.search-button,
+.filter-button {
+  background: none;
+  border: none;
+  color: #d9d9d9;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex; /* Garante que os ícones sejam exibidos como flex */
+  align-items: center; /* Centraliza verticalmente os ícones */
+}
+
+.search-button:hover,
+.filter-button:hover {
+  color: #007bff;
+}
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0; /* Alinhar o dropdown com o botão de filtro */
+  background-color: #424757;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateX(20px); /* Ajuste fino para alinhar perfeitamente */
+}
+
+.filter-dropdown select {
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+  background-color: #1e2026;
+  color: #d9d9d9;
+}
+
+.profile-container,
+.login-container {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  margin-right: 30px;
+  position: relative;
+  flex-shrink: 0; /* Impedir que o contêiner diminua de tamanho */
+}
+
+.profile-container img {
+  border-radius: 50%;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #424757;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.profile-dropdown p {
+  margin: 5px 0;
+  color: #d9d9d9;
+  font-size: 12px;
+}
+
+.profile-dropdown button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-dropdown button:hover {
+  background-color: #0056b3;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  padding-right: 10px; /* Adicionar um pouco de espaço ao redor do botão */
+  position: relative;
+  flex-shrink: 0; /* Impedir que o contêiner diminua de tamanho */
+  height: 40px; /* Definir altura para o contêiner de login */
+}
+
+.login-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  height: 100%; /* Garantir que o botão ocupe toda a altura do contêiner */
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+.hamburger-menu {
+  display: none; /* Esconder o menu sanduíche por padrão */
+  cursor: pointer;
+}
+
+.hamburger-menu img {
+  width: 30px;
+  height: 30px;
+}
+
+.responsive-menu {
+  display: none; /* Esconder o menu responsivo por padrão */
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e2026;
+  padding: 10px;
+}
+
+/* Estilos de responsividade */
+@media (max-width: 768px) {
+  .search-bar,
+  .profile-container,
+  .login-container {
+    display: none; /* Esconder os elementos individuais em telas pequenas */
   }
 
-  .back-button:hover {
-    background-color: #0056b3;
+  .hamburger-menu {
+    display: block; /* Mostrar o menu sanduíche em telas pequenas */
   }
 
-  .search-container {
-    display: flex;
-    align-items: center;
-
-    input[type="text"] {
-      padding: 5px;
-      margin-right: 10px;
-    }
-
-    select {
-      padding: 5px;
-      margin-right: 10px;
-    }
-
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
+  .responsive-menu {
+    display: flex; /* Mostrar o menu responsivo quando necessário */
   }
 }
+
+@media (min-width: 769px) {
+  .responsive-menu {
+    display: none; /* Esconder o menu responsivo em telas maiores */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+
+  .search-button,
+  .filter-button {
+    font-size: 18px;
+  }
+
+  .profile-container img,
+  .login-container button {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

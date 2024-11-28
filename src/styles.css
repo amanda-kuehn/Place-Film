@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+
 /* Adicionar estilos globais de responsividade */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Istok Web';
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #1E2026; /* Adicionar cor de fundo */
+  color: #d9d9d9; /* Adicionar cor do texto para garantir contraste */
 }
 
 .container {
@@ -26,12 +30,59 @@ button:focus {
   outline: 2px dashed #007BFF;
 }
 
+/* Estilos de responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
 
+  .container {
+    padding: 10px;
+  }
 
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .profile-container,
+  .login-container,
+  .auth-buttons {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .search-bar input[type="text"] {
+    width: 100%;
+  }
 }
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  .profile-container p,
+  .login-container p {
+    font-size: 10px;
+  }
+}
+
+
+
+
+
+
+
+
 
