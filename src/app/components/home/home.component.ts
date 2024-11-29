@@ -1,4 +1,3 @@
-// home.component.ts
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../../services/VideoService.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -56,15 +55,22 @@ export class HomeComponent implements OnInit {
   }
 
   onVideoSelect(videoId: number) {
-    this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
-      if (!isAuthenticated) {
-        this.dialog.open(ErrorDialogComponent);
-        return;
+    this.auth.isAuthenticated$.subscribe({
+      next: (isAuthenticated) => {
+        if (!isAuthenticated) {
+          this.dialog.open(ErrorDialogComponent); // Exibir popup se não estiver autenticado
+        } else {
+          this.router.navigate(['/video', videoId]); // Navegar para o vídeo
+        }
+      },
+      error: (err) => {
+        console.error('Erro ao verificar autenticação:', err);
+        this.dialog.open(ErrorDialogComponent); // Garantir que o popup seja exibido em caso de erro
       }
-      this.router.navigate(['/video', videoId]);
     });
   }
 }
+
 
 
 

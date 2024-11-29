@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 header {
   display: flex;
   justify-content: space-between;
@@ -15,7 +17,7 @@ header {
   width: 150px;
   height: auto;
   cursor: pointer;
-  flex-shrink: 0; /* Impedir que a logo diminua de tamanho */
+  flex-shrink: 0;
 }
 
 .search-bar {
@@ -27,7 +29,7 @@ header {
   flex-grow: 1;
   max-width: 600px;
   justify-content: center;
-  position: relative; /* Permite posicionar o dropdown relativo ao botão */
+  position: relative;
 }
 
 input[type="text"] {
@@ -113,42 +115,47 @@ input[type="text"] {
 }
 
 .profile-dropdown button {
-  background-color: #007bff;
+  align-items: center;
+  background-color: #2F3341;
   color: #fff;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 25px;
   cursor: pointer;
-  width: 100%;
+  font-size: 15px;
   text-align: center;
+  transition: background-color 0.3s ease; /* Transição suave para mudança de cor */
 }
 
 .profile-dropdown button:hover {
-  background-color: #0056b3;
+  background-color: #424757; /* Cor de fundo um pouco mais clara ao passar o mouse */
 }
 
 .login-container {
   display: flex;
   align-items: center;
-  padding-right: 10px; /* Adicionar um pouco de espaço ao redor do botão */
+  padding-right: 10px;
   position: relative;
   flex-shrink: 0; /* Impedir que o contêiner diminua de tamanho */
   height: 40px; /* Definir altura para o contêiner de login */
 }
 
 .login-container button {
-  background-color: #007bff;
+  background-color: #424757;
   color: #fff;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 25px;
   cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
   text-align: center;
-  height: 100%; /* Garantir que o botão ocupe toda a altura do contêiner */
+  height: auto;
+  transition: background-color 0.3s ease; /* Transição suave para mudança de cor */
 }
 
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #2F3341; /* Cor de fundo ao passar o mouse */
 }
 
 .hamburger-menu {
@@ -217,6 +224,8 @@ input[type="text"] {
     padding: 5px;
   }
 }
+
+
 
 
 

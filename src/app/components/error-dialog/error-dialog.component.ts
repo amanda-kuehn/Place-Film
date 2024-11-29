@@ -18,10 +18,14 @@ export class ErrorDialogComponent {
   }
 
   login() {
-    this.auth.loginWithRedirect();
+    console.log('Iniciando fluxo de login...');
+    this.auth.loginWithRedirect().subscribe({
+      error: (err) => console.error('Erro no login:', err) // Log para depuração
+    });
     this.closeDialog();
   }
 }
+
 
 
 

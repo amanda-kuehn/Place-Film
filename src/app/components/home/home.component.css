@@ -1,21 +1,19 @@
-/* Estilo para mensagens de erro */
+/* Estilo para a mensagem de erro */
 .error-message {
-  color: #ff4d4f; /* Cor de destaque para erros */
-  background-color: #ffe6e6; /* Fundo suave para erros */
-  border: 1px solid #ff4d4f;
-  padding: 10px;
-  border-radius: 5px;
+  color: red;
+  text-align: center;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 
 /* Estilo para a lista de vídeos */
 .video-list {
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens se ajustem conforme a largura da tela */
-  justify-content: center; /* Centraliza os itens */
-  gap: 20px; /* Espaçamento entre os itens */
-  padding: 20px 0; /* Espaçamento interno superior e inferior */
-  margin-top: 70px; /* Adicionar margem superior para evitar que a primeira fileira fique escondida pela navbar */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+  margin-top: 70px;
 }
 
 /* Estilo para cada item de vídeo */
@@ -24,18 +22,22 @@
   border: 1px solid #2F3341;
   border-radius: 10px;
   padding: 15px;
-  width: calc(25% - 20px); /* Largura de cada item ajustada para caber quatro por linha, considerando o gap */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
-  text-align: center; /* Centraliza o texto */
-  height: 350px; /* Define uma altura fixa para as formas menores */
+  width: calc(25% - 20px); /* Quatro itens por linha em telas maiores */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  height: 380px; /* Altura ajustada para incluir as imagens padronizadas */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
 
 .video-item h3 {
   color: #ffffff;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 22px;
   margin: 10px 0;
 }
 
@@ -45,59 +47,70 @@
   margin: 10px 0;
 }
 
+/* Ajustes para imagens */
 .video-item img {
-  max-width: 100%;
-  max-height: 150px; /* Define a altura máxima da imagem */
-  border-radius: 5px;
+  width: 100%; /* Largura máxima do contêiner */
+  height: 150px; /* Altura fixa para padronização */
+  border-radius: 5px; /* Bordas arredondadas */
   margin-bottom: 10px;
-  object-fit: cover; /* Garante que a imagem cubra o espaço disponível */
+  object-fit: cover; /* Garante que a imagem seja proporcional e preencha o espaço */
 }
 
 .video-item button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #424757;
+  color: #ffffff;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 15px; /* Tamanho padrão */
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center; /* Centraliza o botão horizontalmente */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  align-self: center;
+  box-shadow: 0 11px 20px rgba(0, 0, 0, 0.2);
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .video-item button:hover {
-  background-color: #0056b3;
+  background-color: #2F3341;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilos de responsividade */
 @media (max-width: 1024px) {
   .video-item {
-    width: calc(33.33% - 20px); /* Ajustar largura máxima para três por linha em telas médias */
+    width: calc(33.33% - 20px); /* Três itens por linha */
   }
 }
 
 @media (max-width: 768px) {
   .video-item {
-    width: calc(50% - 20px); /* Ajustar largura máxima para dois por linha em tablets */
+    width: calc(50% - 20px); /* Dois itens por linha */
   }
 }
 
 @media (max-width: 480px) {
   .video-item {
-    width: 100%; /* Ajustar largura máxima para um por linha em celulares */
+    width: 100%; /* Um item por linha */
   }
 
   .video-item h3 {
-    font-size: 16px;
+    font-size: 16px; /* Reduz o tamanho do título */
   }
 
   .video-item p {
-    font-size: 12px;
+    font-size: 12px; /* Reduz o tamanho da descrição */
   }
 
   .video-item button {
-    padding: 8px 12px;
+    padding: 6px 10px; /* Botões menores para dispositivos pequenos */
+    font-size: 14px; /* Fonte menor */
   }
 }
+
+
+
+
 
 
 
